@@ -1,0 +1,57 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" Basic {
+    NeoBundle 'altercation/vim-colors-solarized'
+    NeoBundle 'Zenburn'
+    NeoBundle 'Shougo/vimproc', {
+          \ 'build' : {
+          \     'windows' : 'make -f make_mingw32.mak',
+          \     'cygwin' : 'make -f make_cygwin.mak',
+          \     'mac' : 'make -f make_mac.mak',
+          \     'unix' : 'make -f make_unix.mak',
+          \    },
+          \ }
+    NeoBundle 'Shougo/unite.vim'            " fuzzy search
+    NeoBundle 'tlib'                        " ultipsnips' dependency
+    NeoBundle 'MarcWeber/ultisnips'         " snip Management
+    NeoBundle 'honza/vim-snippets'          " default snippets
+" }
+
+" Programming {
+    NeoBundle 'tpope/vim-fugitive'          " git
+    NeoBundle 'SuperTab'                    " code complete
+    NeoBundle 'bling/vim-airline'           " status line
+    NeoBundle 'scrooloose/syntastic'        " syntax check
+    NeoBundle 'tComment'                    " comment helper
+    NeoBundle 'godlygeek/tabular'           " alignment
+    NeoBundle 'surround.vim'                " surround the code block.
+    if executable('ctags')
+        NeoBundle 'majutsushi/tagbar'       " tag sidebar
+    endif
+
+    if executable('ack')                    " code search
+        NeoBundle 'mileszs/ack.vim'
+    elseif executable('ackgrep')
+        let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+        NeoBundle 'mileszs/ack.vim'
+    elseif executable('ag')
+        NeoBundle 'mileszs/ack.vim'
+        let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+    endif
+
+    NeoBundle 'tpope/vim-markdown'          " markdown syntax
+    NeoBundle 'amirh/HTML-AutoCloseTag'     " HTML: auto close the tag
+    NeoBundle 'hail2u/vim-css3-syntax'      " CSS / SCSS
+    NeoBundle 'tpope/vim-haml'              " haml
+    NeoBundle 'pangloss/vim-javascript'     " javascript
+    NeoBundle 'kchmck/vim-coffee-script'    " coffeescript
+    NeoBundle 'Jinja'                       " Jinja2
+    NeoBundle 'juvenn/mustache.vim'         " mustache
+    NeoBundle 'markcornick/vim-vagrant'     " Vagrant support
+" }
+
+" Python {
+    NeoBundle 'davidhalter/jedi-vim'
+    NeoBundle 'python.vim'
+    NeoBundle 'python_match.vim'
+" }
+NeoBundleCheck
