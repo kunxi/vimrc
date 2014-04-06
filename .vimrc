@@ -2,8 +2,8 @@
 "
 " Environment {
     if has('vim_starting')
-    set nocompatible               " Be iMproved
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+        set nocompatible               " Be iMproved
+        set runtimepath+=~/.vim/bundle/neobundle.vim/
     endif
 
     call neobundle#rc(expand('~/.vim/bundle/'))
@@ -38,6 +38,11 @@
 
     " restore the cursor
     " undo 
+    " disable the bell
+    set noerrorbells visualbell t_vb=
+    if has('autocmd')
+        autocmd GUIEnter * set visualbell t_vb=
+    endif
 " }
 
 " Use bundles config {
