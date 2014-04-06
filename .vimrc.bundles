@@ -16,6 +16,10 @@
     NeoBundle 'honza/vim-snippets'          " default snippets
 " }
 
+" Writing {
+    NeoBundle 'dhruvasagar/vim-table-mode'
+" }
+
 " Programming {
     NeoBundle 'tpope/vim-fugitive'          " git
     NeoBundle 'SuperTab'                    " code complete
