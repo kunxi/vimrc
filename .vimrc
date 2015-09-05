@@ -6,7 +6,17 @@
         set runtimepath+=~/.vim/bundle/neobundle.vim/
     endif
 
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundleFetch 'Shougo/neobundle.vim'
+
+    if filereadable(expand("~/.vimrc.bundles"))
+        source ~/.vimrc.bundles
+    endif
+    call neobundle#end()
+
+    filetype plugin indent on   " Automatically detect file types.
+
+    NeoBundleCheck
 " }
 
 " General {
@@ -14,7 +24,6 @@
     if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
     endif
-    filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
@@ -45,13 +54,6 @@
     endif
 " }
 
-" Use bundles config {
-    if filereadable(expand("~/.vimrc.bundles"))
-        source ~/.vimrc.bundles
-    endif
-" }
-
-
 " Vim UI {
     set background=dark                 " Assume a dark background
     colorscheme zenburn
@@ -81,7 +83,9 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        set statusline+=%{fugitive#statusline()} " Git Hotness
+        if exists('g:loaded_fugitive')
+            set statusline+=%{fugitive#statusline()} " Git Hotness
+        endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info

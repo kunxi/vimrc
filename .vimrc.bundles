@@ -58,4 +58,3 @@
     NeoBundle 'python.vim'
     NeoBundle 'python_match.vim'
 " }
-NeoBundleCheck
