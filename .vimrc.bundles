@@ -55,6 +55,6 @@
 
 " Python {
     NeoBundle 'davidhalter/jedi-vim'
-    NeoBundle 'python.vim'
+    NeoBundle 'klen/python-mode'
     NeoBundle 'python_match.vim'
 " }
