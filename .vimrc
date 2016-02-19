@@ -28,6 +28,7 @@
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
+    set encoding=utf-8
 
     if has ('x') && has ('gui') " On Linux use + register for copy-paste
         set clipboard=unnamedplus
@@ -264,12 +265,14 @@
     " }
 
     " vim-airline {
-        let g:airline_theme = 'powerlineish'
+        let g:airline_theme = 'zenburn'
         if has('gui_running')
             if has("gui_macvim")
                 set guifont=Inconsolata\ for\ Powerline:h14
-            else
+            elseif has("gui_gtk2")
                 set guifont=Inconsolata\ for\ Powerline\ 12
+            elseif has("gui_win32")
+                set guifont=Inconsolata\ for\ Powerline:h11:cDEFAULT
             endif
             let g:airline_powerline_fonts = 1
         else
