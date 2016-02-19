@@ -23,7 +23,8 @@
 " Programming {
     NeoBundle 'tpope/vim-fugitive'          " git
     NeoBundle 'SuperTab'                    " code complete
-    NeoBundle 'bling/vim-airline'           " status line
+    NeoBundle 'vim-airline/vim-airline'           " status line
+    NeoBundle 'vim-airline/vim-airline-themes'    " status line themes
     NeoBundle 'scrooloose/syntastic'        " syntax check
     NeoBundle 'tComment'                    " comment helper
     NeoBundle 'godlygeek/tabular'           " alignment
